@@ -11,7 +11,6 @@ import androidx.navigation.compose.rememberNavController
 import com.example.mpproject.navigation.Route
 import com.example.mpproject.navigation.NavGraph
 import com.example.mpproject.ui.theme.MPProjectTheme
-import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,15 +23,7 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     val navController = rememberNavController()
-                    val auth = FirebaseAuth.getInstance()
-
-                    if (auth.currentUser == null) {
-                        NavGraph(navController = navController, startDestination = Route.Start)
-
-                    } else {
-                        NavGraph(navController = navController, startDestination = Route.Home)
-                    }
-
+                    NavGraph(navController = navController, startDestination = Route.Start)
                 }
             }
         }
