@@ -30,12 +30,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-data class QuestionItem(
-    var question: String,
-    var answers: MutableList<String>,
-    var questionType: String // "single" for RadioButton, "multiple" for Checkbox
-)
-
+// 설문조사 생성 화면
 @Composable
 fun CreateSurveyScreen(onSubmit: (String, List<QuestionItem>) -> Unit) {
     var surveyTitle by remember { mutableStateOf("") }
